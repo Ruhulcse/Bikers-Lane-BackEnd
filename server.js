@@ -3,9 +3,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cors = require("cors");
 const connectDB = require("./config/db");
-//test
-// const resOwnerRoutes = require("./routes/resOwnerRoutes");
-// const restaurantRoute = require("./routes/restaurantRouter");
+const userRoutes = require("./routes/userRoutes");
 dotenv.config();
 connectDB();
 const app = express();
@@ -21,10 +19,8 @@ app.get("/", function (req, res) {
   res.send("hello world");
 });
 
-// //Restuarent owner API
-// app.use("/api/res-owner", resOwnerRoutes);
-// //Restuarent API
-// app.use("/api/res", restaurantRoute);
+app.use("/api/v1/user", userRoutes);
+
 const PORT = process.env.PORT || 5000;
 app.listen(
   PORT,
