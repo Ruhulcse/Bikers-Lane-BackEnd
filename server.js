@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const cors = require("cors");
 const connectDB = require("./config/db");
+//test
 // const resOwnerRoutes = require("./routes/resOwnerRoutes");
 // const restaurantRoute = require("./routes/restaurantRouter");
 dotenv.config();
