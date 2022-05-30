@@ -7,6 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 const eventRoutes = require("./routes/eventRoutes");
 const postRoutes = require("./routes/postRoutes");
 const productRoutes = require("./routes/productRoutes");
+const statusRoutes = require("./routes/statsRoutes");
 dotenv.config();
 connectDB();
 const app = express();
@@ -26,6 +27,7 @@ app.use("/api/v1/user", userRoutes);
 app.use("/api/v1/post", postRoutes);
 app.use("/api/v1/event", eventRoutes);
 app.use("/api/v1/product", productRoutes);
+app.use("/api/v1/stats", statusRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(

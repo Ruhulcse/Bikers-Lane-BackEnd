@@ -3,10 +3,11 @@ const Product = require("../models/marketplaceModel");
 
 //Create event
 const createProduct = asyncHandler(async (req, res) => {
-  const { name, price, selectedFile } = req.body;
+  const { name, price, selectedFile, category } = req.body;
   const productData = new Product({
     name,
     price,
+    category,
     selectedFile,
   });
   try {
