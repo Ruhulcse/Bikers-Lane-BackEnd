@@ -15,8 +15,7 @@ const Login = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     });
   } else {
-    res.status(401);
-    throw new Error("Login failed");
+    res.status(202).send(new Error("invalid user name or password"));
   }
 });
 
@@ -26,8 +25,10 @@ const Registration = asyncHandler(async (req, res) => {
 
   const userExists = await User.findOne({ email });
 
+  console.log("user exist", userExists);
+
   if (userExists) {
-    return res.status(400).json({ error: "user already exists" });
+    res.status(202).send(new Error("user already exist"));
   }
 
   const user = new User({
