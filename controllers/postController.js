@@ -53,7 +53,10 @@ const getPostsByCreator = async (req, res) => {
 };
 
 const getPost = async (req, res) => {
+  console.log("requested");
+
   const { id } = req.params;
+  console.log("id is ", id);
 
   try {
     const post = await PostMessage.findById(id);
